@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Created by wxb on 2018/10/21 0021.
  * 自定义验证类，可以用作backdoor，例如输入：alex/任意密码就可以通过验证
  */
 @Component
@@ -27,8 +26,7 @@ public class BackdoorAuthenticationProvider implements AuthenticationProvider {
             Collection<GrantedAuthority> authorityCollection = new ArrayList<>();
             authorityCollection.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
             authorityCollection.add(new SimpleGrantedAuthority("ROLE_USER"));
-            return new UsernamePasswordAuthenticationToken(
-                    "admin", password, authorityCollection);
+            return new UsernamePasswordAuthenticationToken("admin", password, authorityCollection);
         } else {
             return null;
         }
@@ -36,7 +34,6 @@ public class BackdoorAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return authentication.equals(
-                UsernamePasswordAuthenticationToken.class);
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }

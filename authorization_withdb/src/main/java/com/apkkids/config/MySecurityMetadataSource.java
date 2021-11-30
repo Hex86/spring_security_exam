@@ -32,8 +32,7 @@ public class MySecurityMetadataSource implements FilterInvocationSecurityMetadat
         List<MyResourceBean> resourceBeans = resourceMapper.selectAllResource();
         for (MyResourceBean resource : resourceBeans) {
             //首先进行地址匹配
-            if (antPathMatcher.match(resource.getUrl(), requestUrl)
-                    && resource.getRolesArray().length > 0) {
+            if (antPathMatcher.match(resource.getUrl(), requestUrl) && resource.getRolesArray().length > 0) {
                 return SecurityConfig.createList(resource.getRolesArray());
             }
         }

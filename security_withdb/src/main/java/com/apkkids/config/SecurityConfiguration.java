@@ -37,6 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(backdoorAuthenticationProvider);
         //加入数据库验证类，下面的语句实际上在验证链中加入了一个DaoAuthenticationProvider
         auth.userDetailsService(myUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+
     }
 
     /**

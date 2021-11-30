@@ -51,7 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers( "/index.html", "/static/**", "/favicon.ico","/error","/login_p");
+        web.ignoring().antMatchers("/index.html", "/static/**", "/favicon.ico", "/error", "/login_p");
     }
 
     @Override
